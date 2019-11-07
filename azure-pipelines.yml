@@ -74,7 +74,7 @@ stages:
             inputs:
               scriptType: pscore
               scriptLocation: inlineScript
-              azureSubscription: RMDev
+              azureSubscription: $(azureSubscription)
               inlineScript: |
                 $clusterId="/subscriptions/c00d16c7-6c1f-4c03-9be1-6934a4c49682/resourcegroups/desattiraks/providers/Microsoft.ContainerService/managedClusters/desattiraks"
                 $resourceGroupName=$(cut -d '/' -f5 <<< "$clusterId")
@@ -138,7 +138,7 @@ stages:
             inputs:
               scriptType: pscore
               scriptLocation: inlineScript
-              azureSubscription: RMDev
+              azureSubscription: $(azureSubscription)
               inlineScript: |
                 $clusterId="/subscriptions/c00d16c7-6c1f-4c03-9be1-6934a4c49682/resourcegroups/desattiraks/providers/Microsoft.ContainerService/managedClusters/desattiraks"
                 $resourceGroupName=$(cut -d '/' -f5 <<< "$clusterId")
