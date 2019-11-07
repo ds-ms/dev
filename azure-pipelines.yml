@@ -44,9 +44,6 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
-          
-    - upload: charts
-      artifact: charts
 
 - stage: Deploy
   displayName: Deploy stage
@@ -88,7 +85,7 @@ stages:
             name: bake
             inputs:
               action: bake
-              helmChart: $(Pipeline.Workspace)/charts/devspaces-v0.0.1.tgz
+              helmChart: charts/devspaces-v0.0.1.tgz
               overrides: |
                 image.repository:$(containerRegistry)/$(imageRepository)
                 service.port:80 
@@ -152,7 +149,7 @@ stages:
             name: bake
             inputs:
               action: bake
-              helmChart: $(Pipeline.Workspace)/charts/devspaces-v0.0.1.tgz
+              helmChart: charts/devspaces-v0.0.1.tgz
               overrides: |
                 image.repository:$(containerRegistry)/$(imageRepository)
                 service.port:80 
